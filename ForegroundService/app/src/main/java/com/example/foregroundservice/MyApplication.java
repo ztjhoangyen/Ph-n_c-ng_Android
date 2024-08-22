@@ -7,12 +7,13 @@ import android.os.Build;
 //thuc hanh foreground service
 //viết code xử lý bên trong này
 public class MyApplication extends Application {
-
+//    khởi tạo 1 hằng số
     public static final String CHANNEL_ID = "channel_service_example";
 
     @Override
     public void onCreate() {
         super.onCreate();
+//        khởi tạo channel id
         createChannelNotification();
     }
 
@@ -26,5 +27,4 @@ public class MyApplication extends Application {
             }
         }
     }
-
 }

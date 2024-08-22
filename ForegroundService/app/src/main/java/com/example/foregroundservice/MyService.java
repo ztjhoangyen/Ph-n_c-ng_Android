@@ -18,6 +18,7 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+//        khi nó chạy vào đây chứng tỏ nó đã được khởi tạo
         Log.e("Tincoder", "Myservice onCreate()");
     }
 //hàm này là sử dụng khi thuộc loại bounded service và ngược lại
@@ -45,7 +46,7 @@ public class MyService extends Service {
 
     private void sendNotification(String strDateIntent) {
         Intent intent = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE  );
 
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("Title notification service example")

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="MyFragmentViewModel"
+            type="com.example.databinding.MyFragmentViewModel" />
+
+        <variable
+            name="MyHandlers"
+            type="com.example.databinding.MyHandlers" />
+
+        <variable
+            name="MainViewModel"
+            type="com.example.databinding.MainViewModel" />
+
+       <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.example.databinding.MyViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".BlankFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@{MyFragmentViewModel.name}"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcl_"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+<!--Có tham số-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:onClick="@{MyHandlers::showLog}"-->
+<!--            android:text="ok"-->
+<!--            android:layout_marginTop="10dp"/>-->
+<!--      Không tham số-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:onClick="@{() -> MyHandlers.showLog()}"-->
+<!--            android:text="ok"-->
+<!--            android:layout_marginTop="10dp"/>-->
+
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:onClick="@{() -> MyHandlers.showLog1(MyFragmentViewModel.name)}"-->
+<!--            android:text="ok"-->
+<!--            android:layout_marginTop="10dp"/>-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:onClick="@{(view) -> MyHandlers.showLog2(view, MyFragmentViewModel.name)}"-->
+<!--            android:text="ok"-->
+<!--            android:layout_marginTop="10dp"/>-->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> MyHandlers.showLog3(MainViewModel)}"
+            android:text="ok"
+            android:layout_marginTop="10dp"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@={viewModel.checkboxState}"
+            android:id="@+id/checkbox"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="@string/app_name"
+            android:textSize="20sp"
+            android:visibility="@{checkbox.checked ? View.VISIBLE : View.GONE }"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            android:layout_marginTop="40dp"
+            android:textSize="20sp"
+            android:visibility="@{viewModel.checkboxState ? View.VISIBLE : View.GONE}" />
+
+    </FrameLayout>
+
+</layout>

@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
 // truyền dữ liệu lên service thì xử lý dữ liệu ở hàm onStartComand bên service
                 intent.putExtra("data_intent", edtDataInt.getText().toString().trim());
         //        khoi chay bang cau lenh
+//        Gọi startService thì nó chạy vào startCommand bên Myservice
+//        Tương tự mấy hàm gọi khác
         startService(intent);
     }
 
